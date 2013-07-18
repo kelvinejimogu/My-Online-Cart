@@ -3,4 +3,16 @@
 <%
 
 Function GenerateNewReleases()
+
 Dim html string as string
+
+Dim sqlQuerry 'as string
+
+Dim rs 'as ADOBEDB.Recordset
+
+sqlQuery = " Up_GetNewReleases Top5 "
+
+Set rs = Sever.CreatObject("ADOBE.Recordset")
+
+Set rs = dbConn.Execute(sqlQuery) 
+
