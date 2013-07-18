@@ -1,0 +1,6 @@
+<DOCTYPE HTML Public "-//W3C DTD HTML 4.01 Transitional EN'"/>
+
+<%
+
+Function GenerateNewReleases()
+Dim html string as string
