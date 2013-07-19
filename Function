@@ -126,6 +126,50 @@ Else
 
 Do While Not rs.Eof
 
+HTMLString = HTMLString & "" & rs("HedLine") & "__"
+
+HTMLString = HTMLString & "(Story)" & vbcrlf
+
+rs.MoveNext
+
 Loop
 
 End If
+
+Set rs = Nothing
+
+GenerateMusicNews = HTMLString
+
+End Function
+
+Function GenerateSpecialOffers()
+
+Dim HTMLString 'as String 
+
+Dim sqlQuery 'as String
+
+Dim rs 'as ADODBE.RecordSet
+
+sqlQuery = "up_GetSpecialOffers Top5"
+
+Set rs = Server.CreatObject("ADODBE.RecordSet")
+
+Set rs = dbConn.Execute(sqlQuery)
+
+If rs.EOF and rs.BOF Then
+
+HTMLString = "An Error Occutred"
+
+Else
+
+Do While rs Not Eof
+
+HTMLString = HTMLString & "" & rs(ShortDiscreption) & "__"
+
+HTMLString = HTMLString &"()" & vbcrlf
+
+rs.MoveNext
+
+Loop
+
+End IF
