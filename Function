@@ -4,15 +4,128 @@
 
 Function GenerateNewReleases()
 
-Dim html string as string
+Dim HTMLString as string
 
 Dim sqlQuerry 'as string
 
 Dim rs 'as ADOBEDB.Recordset
 
-sqlQuery = " Up_GetNewReleases Top5 "
+sqlQuery = " up_GetNewReleases Top5 "
 
 Set rs = Sever.CreatObject("ADOBE.Recordset")
 
-Set rs = dbConn.Execute(sqlQuery) 
+Set rs = dbConn.Execute(sqlQuery)
 
+if rs.EOF and rs.BOF Then
+
+Then HTMLString = "An Error Occured"
+
+Else
+
+Do While Not rs.Eof
+
+HTMLString = & ""& rs("ArtistName")& "--"
+
+HTMLString = & rs("ProductGroupTitle") &"--"
+
+HTMLString = & rs("ReleaseDate") & ""
+
+HTMLString = & "" & vbcrlf
+
+rs.MoveNext
+
+Loop
+
+End IF 
+
+Set rs = NOTHING
+
+GeneratNewReleases = HTMLString
+
+End Function
+
+Function GenerateUpcomingShows()
+
+Dim HTMLString 'as String
+
+Dim sqlQuerry 'as string
+
+Dim rs 'as ADODBE.Recordset
+
+Dim sqlQuerry2 'as string
+
+Dim rs2 'as ADODB.Recordset
+
+sqlquerry = "up_GetUpcomingShows Top5"
+
+Set rs = Server.CreatObject("ADODBE.Recordset")
+
+Set rs2 = Server.CreatObject("ADODBE.Recordset")
+
+Set rs = dbConn.Execute(sqlQuery)
+
+If rs.EOF and rs.BOF Then
+
+HTMLString = "An Error Occurred"
+
+Else
+
+Do While Not rs.Eof
+
+HTMLString = HTMLString & "" & rs("EventName") & "__"
+
+sqlQurey2 = "up_GetDenrmalizedArtistForEvent" & rs("EventID")
+
+Set rs2 = dbConn.Execute(sqlQuery2)
+
+HTMLString = HTMLString & "" & rs2("Artists") & "__"
+
+rs2.close
+
+HTMLString = HTMLString & "" & rs("City") & "__"
+
+HTMLSTring = HTMLString & "" & rs("EventDateTime") &"__"
+
+HTMLString = HTMLSting & "(More Info)" & vbcrlf
+
+rs.MoveNext
+
+Loop
+
+End If
+
+rs.close
+
+Set rs = Nothing
+
+Set rs2 = Nothing
+
+GenerateUpComingShows = HTMLString 
+
+End Functions
+
+Function GenerateMusicNews()
+
+Dim HTMLSting 'as String
+
+Dim sqlQuery'as String
+
+Dim rs 'as ("ADODBE.Recordset")
+
+sqlQuery = "up_GetMusicNews Top5"
+
+Set rs = Server.CreateObject("ADODBE.Recordset")
+
+Set rs = dbConn.Execute(sqlQuery)
+
+If rs.EOF and rs.BOF Then
+
+HTMLString = HTMLString "An Error Occured"
+
+Else 
+
+Do While Not rs.Eof
+
+Loop
+
+End If
