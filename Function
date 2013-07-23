@@ -164,7 +164,7 @@ Else
 
 Do While rs Not Eof
 
-HTMLString = HTMLString & "" & rs(ShortDiscreption) & "__"
+HTMLString = HTMLString & "" & rs("ShortDiscreption") & "__"
 
 HTMLString = HTMLString &"()" & vbcrlf
 
@@ -173,3 +173,26 @@ rs.MoveNext
 Loop
 
 End IF
+
+GenerateSpecialOffers = HTMLString
+
+End Function
+
+Dim NewReleasesHTML 'as String
+
+Dim UpCommingShowsHTML 'as String
+
+Dim MusicNewsHTML 'as String
+
+Dim SpecialoffersHTML 'as String
+
+
+NewReleasesHTML = GenerateNewReleases()
+
+UpcomingShowsHTML = GenerateUpcComming
+
+MusicNewsHTML = GenerateMusicNews()
+
+SpecialOffersHTML = GenerateSpecialOffers()
+
+%>
