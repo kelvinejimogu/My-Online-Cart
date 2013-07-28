@@ -217,9 +217,47 @@ SpecialOffersHTML = GenerateSpecialOffers()
       </tr>  
     </table>
     <table width="100%" cellspacing="0" cellpadding="0">
-    <tr Valign="top" align="right" width="120"  bgcolor"#cccccc">
-        <!--Navigation goes here-->
-        <div></div>
-    </tr>
+    <tr>
+        <td Valign="top" align="right" width="120"  bgcolor"#cccccc">
+            <!--Navigation goes here-->
+            <div class="tunein">
+                TuneIn!<br>
+                <hr width="80" align="center" noshade>
+         </div>
+            <!--navigation goes here-->
+            <!--#include file="include\navigation.asp"
+    </td>
+    <td valign="top">
+                <table width="99%" cellspacing=5 cellpadding=5 border=0>
+                    <tr>
+                            <td valign="top">
+                                <h1>New Release</h1>
+                                <%=NewReleasesHTML%>
+                            </td>
+                            <td valign="top">
+                                <h1>Upcoming Shows</h1>
+                                <%=UpcomingShowsHTML%>
+				            </td
+                    </tr>
+                    <tr>
+    			            <td valign="top">
+					            <h1>Music News</h1>
+					            <%=MusicNewsHTML%>
+				            </td>
+				            <td valign="top">
+					            <h1>Special Offers</h1>
+					            <%=SpecialOffersHTML%>
+				            </td>
+			        </tr>
+                </table>
+    </td>
+    <td valign="top" align="right" width=200> 
+        <table border="1" cellspacing="0" cellpadding="0">
+          <tr> 
+            <td bgcolor="#CCCCCC"> 
+    		<!-- Shopping Cart Include Goes Here -->
+            <!-- #include file="include\cartinfo.asp" -->  
+        </td>
+      </tr>
     </table>
 </body>
