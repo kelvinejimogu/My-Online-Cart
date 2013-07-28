@@ -259,5 +259,10 @@ SpecialOffersHTML = GenerateSpecialOffers()
             <!-- #include file="include\cartinfo.asp" -->  
         </td>
       </tr>
+      </table>
+	</td>
+	</tr>
     </table>
 </body>
+</html>
+<!-- include virtual="include/deconfig.asp" -->
